@@ -1,19 +1,21 @@
-import { NgModule } from "@angular/core";
+import { NgModule } from '@angular/core';
 
-import { SharedModule } from "../shared/shared.module";
-import { FormsModule } from '@angular/forms'
+import { SharedModule } from '../shared/shared.module';
+import { FormsModule } from '@angular/forms';
 
-import { PAGES_ROUTES } from "./pages.routes";
+import { PAGES_ROUTES } from './pages.routes';
 
 import { ChartsModule } from 'ng2-charts';
 
-import { DashboardComponent } from "./dashboard/dashboard.component";
-import { ProgressComponent } from "./progress/progress.component";
-import { Graphics1Component } from "./graphics1/graphics1.component";
-import { PagesComponent } from "./pages.component";
-import { IncrementatorComponent } from "../components/incrementator/incrementator.component";
-import { DonutGraphicComponent } from "../components/donut-graphic/donut-graphic.component";
+import { DashboardComponent } from './dashboard/dashboard.component';
+import { ProgressComponent } from './progress/progress.component';
+import { Graphics1Component } from './graphics1/graphics1.component';
+import { PagesComponent } from './pages.component';
+import { IncrementatorComponent } from '../components/incrementator/incrementator.component';
+import { DonutGraphicComponent } from '../components/donut-graphic/donut-graphic.component';
 import { AccountSettingsComponent } from './account-settings/account-settings.component';
+import { PromisesComponent } from './promises/promises.component';
+import { RxjsComponent } from './rxjs/rxjs.component';
 
 @NgModule({
     declarations: [
@@ -23,7 +25,9 @@ import { AccountSettingsComponent } from './account-settings/account-settings.co
         Graphics1Component,
         IncrementatorComponent,
         DonutGraphicComponent,
-        AccountSettingsComponent
+        AccountSettingsComponent,
+        PromisesComponent,
+        RxjsComponent
     ],
     exports: [
         PagesComponent,
