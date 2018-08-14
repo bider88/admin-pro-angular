@@ -17,6 +17,10 @@ import { AccountSettingsComponent } from './account-settings/account-settings.co
 import { PromisesComponent } from './promises/promises.component';
 import { RxjsComponent } from './rxjs/rxjs.component';
 
+// Pipe Module
+import { PipesModule } from '../pipes/pipes.module';
+import { ProfileComponent } from './profile/profile.component';
+
 @NgModule({
     declarations: [
         PagesComponent,
@@ -27,7 +31,8 @@ import { RxjsComponent } from './rxjs/rxjs.component';
         DonutGraphicComponent,
         AccountSettingsComponent,
         PromisesComponent,
-        RxjsComponent
+        RxjsComponent,
+        ProfileComponent
     ],
     exports: [
         PagesComponent,
@@ -39,7 +44,8 @@ import { RxjsComponent } from './rxjs/rxjs.component';
         SharedModule,
         PAGES_ROUTES,
         FormsModule,
-        ChartsModule
+        ChartsModule,
+        PipesModule
     ]
 })
 
