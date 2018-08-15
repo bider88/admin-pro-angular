@@ -8,7 +8,7 @@ import { SettingsService } from '../../services/service.index';
 })
 export class AccountSettingsComponent implements OnInit {
 
-  constructor( 
+  constructor(
     public settingsService: SettingsService
   ) { }
 

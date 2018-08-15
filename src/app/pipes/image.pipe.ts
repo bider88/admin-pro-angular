@@ -31,13 +31,13 @@ export class ImagePipe implements PipeTransform {
 
     switch ( type )  {
       case 'user':
-        url += '/user/' + img + '?token=' + token;
+        url += '/image/user/' + img + '?token=' + token;
       break;
       case 'doctor':
-        url += '/doctor/' + img + '?token=' + token;
+        url += '/image/doctor/' + img + '?token=' + token;
       break;
       case 'hospital':
-        url += '/hospital/' + img + '?token=' + token;
+        url += '/image/hospital/' + img + '?token=' + token;
       break;
       default:
         console.log('tipo de imagen no existe. (user, doctor, hospita)');

@@ -1,10 +1,11 @@
 import swal from 'sweetalert';
-import { map } from 'rxjs/operators';
 import { Injectable } from '@angular/core';
 import { User } from '../../models/user.model';
-import { HttpClient } from '@angular/common/http';
+import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { environment } from '../../../environments/environment';
 import { Router } from '@angular/router';
+
+import { map } from 'rxjs/operators';
 
 @Injectable({
   providedIn: 'root'
@@ -60,11 +61,48 @@ export class UserService {
     return this._httpClient.post(url, user).pipe(
       map( ( res: any ) => {
 
-        localStorage.setItem( '_id', res.data._id );
-        localStorage.setItem( 'token', res.token );
-        localStorage.setItem( 'user', JSON.stringify( res.data ) );
+        this.saveUser ( res.data._id, res.token, res.data );
 
         swal('Usuario creado', user.email, 'success');
+
+        return true;
+      })
+    );
+  }
+
+  updateUser(user: User) {
+
+    const httpOptions = {
+      headers: new HttpHeaders({
+        'token': this.token
+      })
+    };
+
+    const url = `${this.API_URL}/user/${user._id}`;
+
+    return this._httpClient.put(url, user, httpOptions).pipe(
+      map( ( res: any ) => {
+
+        this.saveUser ( res.data._id, this.token, res.data );
+
+        swal('Usuario actualizado', user.email, 'success');
+
+        return true;
+      })
+    );
+  }
+
+  uploadImage(picture: FormData, type: string, id: string) {
+
+    const url = `${this.API_URL}/upload/${type}/${id}`;
+
+    return this._httpClient.put(url, picture ).pipe(
+      map( ( res: any ) => {
+        swal('Imagen cargada', 'La imagen se ha actualizado con éxito', 'success');
+
+        this.user.img = res.img;
+
+        this.saveUser(res.user._id, this.token, res.user);
 
         return true;
       })

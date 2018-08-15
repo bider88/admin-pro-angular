@@ -32,7 +32,6 @@ export class IncrementatorComponent implements OnInit {
     this.txtProgress.nativeElement.value = this.percentage;
 
     this.cValue.emit( this.percentage );
-    
     this.txtProgress.nativeElement.focus();
   }
 

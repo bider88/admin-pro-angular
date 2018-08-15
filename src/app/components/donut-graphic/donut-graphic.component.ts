@@ -7,9 +7,10 @@ import { Component, OnInit, Input } from '@angular/core';
 })
 export class DonutGraphicComponent implements OnInit {
 
-  @Input() chartLabels:string[] = [];
-  @Input() chartData:number[] = [];
-  @Input() chartType:string = 'doughnut';
+  @Input() chartLabels: string[] = [];
+  @Input() chartData: number[] = [];
+  // tslint:disable-next-line:no-inferrable-types
+  @Input() chartType: string = 'doughnut';
 
   constructor() { }
 
